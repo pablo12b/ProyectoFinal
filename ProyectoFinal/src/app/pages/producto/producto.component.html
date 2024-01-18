@@ -1,1 +1,20 @@
-<p>producto works!</p>
+<main class="container">
+    <h2>Catálogo de Productos</h2>
+    <div id="products-grid" class="product-grid">
+      <!-- Aquí irán los productos, que serán cargados y ordenados alfabéticamente -->
+    </div>
+  </main>
+
+  <div class="product" *ngFor="let pro of productos | async">
+    <p>{{pro.nombre}}</p>
+    <p>{{pro.categoria}}</p>
+    <p>{{pro.precio}}</p>
+  </div>
+
+  <footer class="container">
+    <small>
+      <a href="#">Sobre la tienda</a> • 
+      <a href="#">Política de Entrega frente al COVID-19</a> • 
+      <a href="#">Términos y Condiciones</a>
+    </small>
+  </footer>
