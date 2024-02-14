@@ -23,7 +23,7 @@
             <img [src]="det.producto?.url" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;">
           </td>
           <div class="delete-button-container">
-            <button (click)="eliminarDetalle(det.codigo)" title="Eliminar detalle" class="delete-button">-</button>
+            <button (click)="eliminarDetalle(det.codigo)" title="Eliminar detalle" class="delete-button"><i class="fas fa-trash"></i></button>
           </div>
         </tr>
       </tbody>
