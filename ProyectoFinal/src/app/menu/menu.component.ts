@@ -9,5 +9,7 @@ export class MenuComponent {
   paginas = [
     {titulo: 'Inicio', path: 'paginas/inicio'},
     {titulo: 'Producto', path: 'paginas/producto'},
+    {titulo: 'Carrito', path: 'paginas/carrito'},
+    {titulo: 'Log In', path: 'paginas/login'},
   ]
 }

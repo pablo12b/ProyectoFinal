@@ -1,0 +1,19 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="usuario">Usuario:</label>
+      <input id="usuario" formControlName="usuario" type="text" placeholder="Usuario" required>
+    </div>
+    <div class="form-group">
+      <label for="contras">Contraseña:</label>
+      <input id="contras" formControlName="contras" type="password" placeholder="Contraseña" required>
+    </div>
+    <div class="form-actions">
+      <button type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    </div>
+  </form>
+  <p>
+    ¿No tienes una cuenta? <a href="/paginas/signup">Regístrate aquí</a>
+  </p>
+</div>

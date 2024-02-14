@@ -1,0 +1,37 @@
+<form id="frm">
+  <div class="customer-details" *ngFor="let car of carritos | async">
+    <div class="customer-info">
+      <p><strong>Código del Cliente:</strong> {{ car.cliente?.codigo }}</p>
+      <p><strong>Nombre del Cliente:</strong> {{ car.cliente?.nombre }}</p>
+      <p><strong>DNI del Cliente:</strong> {{ car.cliente?.dni }}</p>
+    </div>
+    <table class="order-details">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th class="no-print">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let det of detalles | async">
+          <td class="product-name">{{ det.producto?.nombre }}</td>
+          <td>{{ det.cantidad }}</td>
+          <td>{{ det.precio }}</td>
+          <td class="no-print">
+            <img [src]="det.producto?.url" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p></p>
+  </div>
+</form>
+<button (click)="realizarCompra()" class="btn-realizar-compra">Realizar Compra</button>
+<footer class="container">
+  <small>
+    <a href="#">Sobre la tienda</a> • 
+    <a href="#">Términos y Condiciones</a>
+  </small>
+</footer>

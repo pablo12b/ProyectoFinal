@@ -1,20 +1,32 @@
 <main class="container">
-    <h2>Catálogo de Productos</h2>
-    <div id="products-grid" class="product-grid">
-      <!-- Aquí irán los productos, que serán cargados y ordenados alfabéticamente -->
+  <h2>Catálogo de Productos</h2>
+  <label for="sortMenu">Ordenar por:</label>
+  <select id="sortMenu" (change)="ordenar(sortMenu.value)" #sortMenu>
+    <option value="precioAsc">Ordenar por Precio: bajo a alto</option>
+    <option value="precioDesc">Ordenar por Precio: alto a bajo</option>
+    <option value="alfabetico">Ordenar por Categoria</option>
+  </select>
+  <div class="pagination-controls">
+    <button (click)="anteriorPagina()" [disabled]="paginaActual === 1">&lt;</button>
+    <button *ngFor="let num of obtenerNumerosDePagina()" (click)="irAPagina(num)" [class.active]="num === paginaActual">{{ num }}</button>
+    <button (click)="siguientePagina()" [disabled]="paginaActual === totalPaginas()">&gt;</button>
+  </div>
+  <div id="products-grid" class="product-grid">
+    <!-- Productos en un contenedor flex -->
+    <div class="product" *ngFor="let pro of productos | slice:(paginaActual - 1) * productosPorPagina : paginaActual * productosPorPagina">
+      <img [src]="pro.url" alt="Imagen del producto">
+      <p>{{ pro.nombre }}</p>
+      <p>{{ pro.categoria }}</p>
+      <p>{{ pro.precio }}</p>
+      <button (click)="agregarAlCarrito(pro)">+</button> <!-- Botón añadir al carrito -->
     </div>
-  </main>
-
-  <div class="product" *ngFor="let pro of productos | async">
-    <p>{{pro.nombre}}</p>
-    <p>{{pro.categoria}}</p>
-    <p>{{pro.precio}}</p>
   </div>
 
-  <footer class="container">
-    <small>
-      <a href="#">Sobre la tienda</a> • 
-      <a href="#">Política de Entrega frente al COVID-19</a> • 
-      <a href="#">Términos y Condiciones</a>
-    </small>
-  </footer>
+</main>
+
+<footer class="container">
+  <small>
+    <a href="#">Sobre la tienda</a> • 
+    <a href="#">Términos y Condiciones</a>
+  </small>
+</footer>

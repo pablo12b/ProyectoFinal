@@ -1,0 +1,29 @@
+<div class="signup-container">
+    <h2>Registrarse</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre completo:</label>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre completo" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">Cédula:</label>
+        <input id="dni" formControlName="dni" type="text" placeholder="Cédula" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input id="direccion" formControlName="direccion" type="text" placeholder="Dirección" required>
+      </div>
+      <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <input id="usuario" formControlName="usuario" type="text" placeholder="Usuario" required>
+      </div>
+      <div class="form-group">
+        <label for="contras">Contraseña:</label>
+        <input id="contras" formControlName="contras" type="password" placeholder="Contraseña" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="!signUpForm.valid">Registrarse</button>
+      </div>
+    </form>
+  </div>
+  

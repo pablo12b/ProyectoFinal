@@ -1,0 +1,66 @@
+.customer-details {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.customer-info {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 16px; /* Tamaño de fuente para el texto */
+}
+
+.order-details {
+  font-size: 16px; /* Tamaño de fuente para la tabla */
+  width: 100%; /* Ancho de la tabla al 100% */
+}
+
+.order-details th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.order-details th,
+.order-details td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.product-name {
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Estilos para el botón "Realizar Compra" */
+.btn-realizar-compra {
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  font-size: 16px; /* Tamaño de fuente */
+  display: flex; /* Para alinear el texto e ícono */
+  align-items: center; /* Para alinear el texto e ícono verticalmente */
+}
+
+/* Estilos para el ícono de carrito de compras */
+.icon-shopping-cart {
+  margin-left: 10px; /* Espaciado a la izquierda del ícono */
+  font-size: 24px; /* Tamaño del ícono */
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
