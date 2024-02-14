@@ -22,6 +22,9 @@
           <td class="no-print">
             <img [src]="det.producto?.url" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;">
           </td>
+          <div class="delete-button-container">
+            <button (click)="eliminarDetalle(det.codigo)" title="Eliminar detalle" class="delete-button">-</button>
+          </div>
         </tr>
       </tbody>
     </table>

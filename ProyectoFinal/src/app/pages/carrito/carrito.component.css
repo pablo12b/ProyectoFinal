@@ -64,3 +64,29 @@
     display: none;
   }
 }
+
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-button {
+  background-color: transparent; /* Fondo transparente para integrarse con el fondo blanco */
+  color: #333; /* Color gris oscuro para el texto del botón */
+  border: none; /* Sin borde para integrarse con el fondo */
+  padding: 10px 15px; /* Espaciado interno para el botón */
+  cursor: pointer; /* Cursor tipo puntero para indicar que es clickeable */
+  transition: color 0.3s; /* Transición suave para el color de texto */
+  font-weight: bold; /* Texto en negrita para mejor legibilidad */
+  font-size: 1rem; /* Tamaño del texto del botón */
+  line-height: 1; /* Ajuste de altura de línea para el botón */
+  display: block; /* Hacer que el botón sea un bloque para permitir el centrado automático */
+  margin: 10px auto; /* Espacio automático en los lados para centrar el botón */
+  text-align: center; /* Asegurar que el texto está centrado dentro del botón */
+}
+
+.delete-button:hover {
+  color: #007bff; /* Cambiar el color del texto al pasar el ratón por encima */
+}
+

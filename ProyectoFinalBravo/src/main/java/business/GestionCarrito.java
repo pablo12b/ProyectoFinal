@@ -60,6 +60,17 @@ public class GestionCarrito {
 		return carritoDAO.obtenerCarritoPersona(codigo);
 	}
 	
+	public void deleteDetalle(int codigo) {
+		List<DetalleFactura> detallespro = gDetalle.getDetalles();
+        for(DetalleFactura detalles : detallespro) {
+        	if(detalles.getCodigo() == codigo) {
+        		detalles.setCarrito(null);
+        		gDetalle.guardarDetalle(detalles);
+        		gDetalle.borrarDetalle(codigo);
+        	}
+        }
+	}
+	
 	public void agregarProductoACarrito(Producto producto, int codigo) {
 	    try {
 	        // Paso 1: Obtén el carrito asociado al cliente mediante su correo.

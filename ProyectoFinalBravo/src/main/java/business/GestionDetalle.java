@@ -20,8 +20,6 @@ public class GestionDetalle {
 	@Inject
 	private GestionFacturas gFacturas;
 	@Inject
-	private GestionProductos gProducto;
-	@Inject
 	private GestionCarrito gCarrito;
 	
 	public void guardarDetalle(DetalleFactura detalle) {

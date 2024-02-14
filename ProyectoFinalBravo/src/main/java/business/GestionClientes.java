@@ -11,6 +11,7 @@ import model.Cliente;
 public class GestionClientes {
 	@Inject
 	private ClienteDAO clienteDAO;
+	
 	public void guardarClientes(Cliente cliente) {
 		Cliente cli = clienteDAO.read(cliente.getCodigo());
 		if(cli != null) {

@@ -1,31 +1,19 @@
 package services;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import business.GestionCarrito;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
-import jakarta.persistence.NonUniqueResultException;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import model.Carrito;
-import model.CarritoProducto;
 import model.Cliente;
-import model.DetalleFactura;
 import model.Producto;
 
 @Path("carritos")
@@ -43,6 +31,19 @@ public class CarritoServices {
 		}
 		ErrorMessage em = new ErrorMessage(6, "No se registran carritos");
 		return Response.status(Response.Status.NOT_FOUND).entity(em).build();
+	}
+	
+	@DELETE
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("delete/{codigo}")
+	public String deleteDetalle(@PathParam("codigo") int codigo){
+		try {
+			gestionCarritos.deleteDetalle(codigo);
+			return "OK";
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "ERROR";
+		}
 	}
 	
 	@POST

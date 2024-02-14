@@ -17,9 +17,15 @@ export class CarritoService {
     let url = `${environment.WS_PATH}/carritos/agregar-producto/${codigo}`;
     return this.http.post<any>(url, producto);
   }
+
   getCarrito(codigo: number){
     let url = `${environment.WS_PATH}/carritos/list/${codigo}`
     return this.http.get<any>(url)
+  }
+
+  deleteDetalle(codigo: number){
+    let url = `${environment.WS_PATH}/carritos/delete/${codigo}`
+    return this.http.delete<any>(url)
   }
 
 }
