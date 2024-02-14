@@ -3,7 +3,7 @@ import { ProductosService } from '../services/productos.service';
 import { Producto } from 'src/app/domain/producto';
 import { AuthService } from '../services/auth.service';
 import { CarritoService } from '../services/carrito.service';
-import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-producto',
@@ -11,8 +11,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent implements OnInit{
+  textoBusqueda: string = '';
   productos: any[]=[];
   productosSeleccionados: Producto[] = [];
+  productosFiltrados: Producto[] = [];
   productosSeleccionado: any;
   paginaActual: number = 1;
   productosPorPagina: number = 20; // 5 columnas x 4 filas
@@ -24,6 +26,7 @@ export class ProductoComponent implements OnInit{
       (productos) => {
         // Hacer una copia del array de productos para no mutar el original
         this.productos = [...productos];
+        this.productosFiltrados = this.productos;
       },
       (error) => {
         console.error('Error al obtener productos', error);
@@ -33,6 +36,18 @@ export class ProductoComponent implements OnInit{
 
   personaAutenticada = this.authService.getUsuarioAutenticado().correo
   codigoAutenticada = this.authService.getUsuarioAutenticado().codigo
+
+  buscar() {
+    if (this.textoBusqueda.trim() === '') {
+      // Si el campo de búsqueda está vacío, mostrar todos los productos
+      this.productosFiltrados = this.productos;
+    } else {
+      // Filtrar los productos según el texto de búsqueda
+      this.productosFiltrados = this.productos.filter(producto =>
+        producto.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase())
+      );
+    }
+  }
 
   ordenar(tipo: string) {
     let productosOrdenados = [...this.productos];

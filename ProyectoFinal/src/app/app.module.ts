@@ -13,6 +13,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MostrarfacComponent } from './pages/mostrarfac/mostrarfac.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { environment } from './enviroment/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 @NgModule({
@@ -27,8 +31,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MostrarfacComponent
   ],
   imports: [
+    AngularFirestoreModule.enablePersistence(),
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
+    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
