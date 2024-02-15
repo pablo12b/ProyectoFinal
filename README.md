@@ -20,4 +20,9 @@ npm install
 ## Iniciar la aplicacion
 npm start
 
+# Funcionalidad
 
+Agregar productos al carrito
+Eliminar productos del carrito
+Realizar compras
+Ordenar productos por precio o categoría
